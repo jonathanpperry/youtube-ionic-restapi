@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="danger">
+    <ion-title> Playlist Search </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>Channel ID</ion-label>
+    <ion-input type="text" [(ngModel)]="channelId"></ion-input>
+  </ion-item>
+  <ion-button
+    (click)="searchPlaylist()"
+    [disabled]="channelId === ''"
+    color="danger"
+    >Search Playlists!</ion-button
+  >
+
+  <ion-list>
+    <ion-item
+      type="button"
+      *ngFor="let list of playlists"
+      (click)="openPlaylist(list?.id)"
+    >
+      <ion-thumbnail>
+        <img [src]="list?.snippet.thumbnails.standard.url" />
+      </ion-thumbnail>
+      <h2>{{list.snippet.title}}</h2>
+      <p>{{list.snippet.publishedAt | date: "short"}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

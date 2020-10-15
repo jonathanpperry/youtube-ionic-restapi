@@ -4,12 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content>
   <ion-item>
     <ion-label>Channel ID</ion-label>
     <ion-input type="text" [(ngModel)]="channelId"></ion-input>
   </ion-item>
   <ion-button
+    expand="full"
     (click)="searchPlaylist()"
     [disabled]="channelId === ''"
     color="danger"
@@ -18,15 +19,17 @@
 
   <ion-list>
     <ion-item
-      type="button"
+      button
       *ngFor="let list of playlists"
       (click)="openPlaylist(list?.id)"
     >
       <ion-thumbnail>
         <img [src]="list?.snippet.thumbnails.standard.url" />
       </ion-thumbnail>
-      <h2>{{list.snippet.title}}</h2>
-      <p>{{list.snippet.publishedAt | date: "short"}}</p>
+      <ion-col>
+        <h4>{{list.snippet.title}}</h4>
+        <p>{{list.snippet.publishedAt | date: "short"}}</p>
+      </ion-col>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -8,4 +8,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-list>
+    <ion-item button *ngFor="let video of videos" (click)="openVideo(video)">
+      <ion-thumbnail item-start>
+        <img [src]="video?.snippet.thumbnails.standard.url" />
+      </ion-thumbnail>
+      <ion-col>
+        <h2>{{video?.snippet.title}}</h2>
+        <p>{{video?.snippet.description}}</p>
+      </ion-col>
+    </ion-item>
+  </ion-list>
+</ion-content>

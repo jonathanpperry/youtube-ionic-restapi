@@ -30,10 +30,6 @@ export class YtService {
           listId +
           "&part=snippet,id&maxResults=20"
       )
-      .pipe(
-        map((res) => {
-          // return res.json()["items"];
-        })
-      );
+      .pipe(map((res) => res));
   }
 }

@@ -24,7 +24,6 @@ export class HomePage {
     );
     this.playlistObservable.subscribe(
       (data) => {
-        console.log("data: ", data);
         this.playlists = data["items"];
       },
       (err) => {

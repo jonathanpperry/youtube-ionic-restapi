@@ -24,7 +24,6 @@ export class PlaylistPage implements OnInit {
       console.log("the list id is: ", listId);
       this.videoObservable = this.ytService.getListVideos(listId);
       this.videoObservable.subscribe((data) => {
-        console.log("video data: ", data);
         this.videos = data["items"];
       });
     });

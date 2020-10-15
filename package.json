@@ -1,8 +1,8 @@
 {
-  "name": "blankApp",
+  "name": "youtube-channel-player",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Jonathan Perry",
+  "homepage": "https://jonathanperry.info/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

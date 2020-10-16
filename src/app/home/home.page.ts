@@ -9,9 +9,22 @@ import { YtService } from "../services/yt.service";
   styleUrls: ["home.page.scss"],
 })
 export class HomePage {
-  channelId = "UCZZPgUIorPao48a1tBYSDgg";
   playlists = [];
   playlistObservable;
+
+  // Array of pre-defined channels
+  youtubeChannels = [
+    {
+      name: "Simon Grimm Ionic",
+      channelId: "UCZZPgUIorPao48a1tBYSDgg",
+    },
+    {
+      name: "Half In Japan",
+      channelId: "UCCzIeqCybFGF_ykW6agM45A",
+    },
+  ];
+
+  selectedChannel;
   constructor(
     private alertController: AlertController,
     public navCtrl: NavController,
@@ -20,7 +33,7 @@ export class HomePage {
 
   searchPlaylist() {
     this.playlistObservable = this.ytService.getPlaylistsForChannel(
-      this.channelId
+      this.selectedChannel.channelId
     );
     this.playlistObservable.subscribe(
       (data) => {

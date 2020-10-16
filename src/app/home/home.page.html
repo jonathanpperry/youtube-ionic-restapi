@@ -6,8 +6,15 @@
 
 <ion-content>
   <ion-item>
-    <ion-label>Channel ID</ion-label>
-    <ion-input type="text" [(ngModel)]="channelId"></ion-input>
+    <ion-label>Select Channel Name</ion-label>
+    <ionic-selectable
+      #ionicSelectable
+      [(ngModel)]="selectedChannel"
+      [items]="youtubeChannels"
+      itemValueField="channelId"
+      itemTextField="name"
+    >
+    </ionic-selectable>
   </ion-item>
   <ion-button
     expand="full"
